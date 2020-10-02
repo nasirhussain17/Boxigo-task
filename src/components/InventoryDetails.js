@@ -1,13 +1,17 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
+import LivingRoom from "./LivingRoom";
 
 function InventoryDetails(props) {
-  // const { db } = props.db;
+  let [showLivingRoom, setShowLivingRoom] = useState(false);
   return (
     <Fragment>
       <div class="row">
+        <h5>Inventory Details</h5>
         <button class="edit-inventory">Edit Inventory</button>
       </div>
       <div class="row mt-4 inventory">Living Room</div>
+
+      <LivingRoom data={props.data.item} />
       <div class="row mt-1 inventory">Bedroom</div>
       <div class="row mt-1 inventory">Kitchen</div>
       <div class="row mt-1 inventory">Bathroom</div>
@@ -29,7 +33,7 @@ function InventoryDetails(props) {
         <div class="col-sm-3">{props.data.old_floor_no}</div>
         <div class="col-sm-3">{props.data.old_elevator_availability}</div>
         <div class="col-sm-3">{props.data.packing_service}</div>
-        <div class="col-sm-3">{props.data.distance}</div>
+        <div class="col-sm-3">{props.data.old_parking_distance}</div>
       </div>
       <div class="row mt-3">
         <h6>Additional Information</h6>
@@ -48,9 +52,9 @@ function InventoryDetails(props) {
       </div>
       <div class="row">
         <div class="col-sm-3">{props.data.new_floor_no}</div>
-        <div class="col-sm-3">Yes</div>
-        <div class="col-sm-3">No</div>
-        <div class="col-sm-3">1 meter</div>
+        <div class="col-sm-3">{props.data.new_elevator_availability}</div>
+        <div class="col-sm-3">{props.data.unpacking_service}</div>
+        <div class="col-sm-3">{props.data.new_parking_distance}</div>
       </div>
       <div class="row mt-3">
         <h6>Additional Information</h6>
